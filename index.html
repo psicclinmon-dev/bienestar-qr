@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienestar Estudiantil — Directorio</title>
+<style>
+  :root{
+    --naranja:#F5A028;
+    --azul:#29ABE2;
+    --rosa:#D6285B;
+    --morado:#5B2A86;
+    --amarillo:#F4C10F;
+    --texto:#2b2b2b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:#faf9f7;
+    color:var(--texto);
+    padding:24px 16px 60px;
+  }
+  .contenedor{
+    max-width:520px;
+    margin:0 auto;
+  }
+  header{
+    text-align:center;
+    margin-bottom:28px;
+  }
+  header img{
+    width:110px;
+    height:auto;
+    margin-bottom:8px;
+  }
+  header h1{
+    font-size:1.3rem;
+    margin:4px 0 2px;
+  }
+  header p{
+    color:#666;
+    font-size:0.9rem;
+    margin:0;
+  }
+  .tarjeta{
+    background:#fff;
+    border-radius:16px;
+    padding:20px 20px 18px;
+    margin-bottom:18px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-top:5px solid var(--azul);
+  }
+  .tarjeta:nth-of-type(2){border-top-color:var(--rosa);}
+  .tarjeta h2{
+    margin:0 0 2px;
+    font-size:1.1rem;
+  }
+  .tarjeta .puesto{
+    color:#777;
+    font-size:0.85rem;
+    margin-bottom:12px;
+  }
+  .dato{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.92rem;
+    margin:6px 0;
+  }
+  .dato span.icono{
+    width:18px;
+    text-align:center;
+  }
+  .boton{
+    display:inline-block;
+    margin-top:14px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:var(--morado);
+    color:#fff;
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:600;
+  }
+  footer{
+    text-align:center;
+    color:#999;
+    font-size:0.75rem;
+    margin-top:30px;
+  }
+</style>
+</head>
+<body>
+  <div class="contenedor">
+    <header>
+      <img src="logo.png" alt="Logo Bienestar Estudiantil">
+      <h1>Bienestar Estudiantil</h1>
+      <p>Directorio de contacto del equipo</p>
+    </header>
+
+    <div class="tarjeta">
+      <h2>Psic. Hevelyn Laurean</h2>
+      <div class="puesto">Psicóloga · Bienestar Estudiantil</div>
+      <div class="dato"><span class="icono">📞</span> 667 204 5768</div>
+      <div class="dato"><span class="icono">✉️</span> hevelyn_laurean@tec.mx</div>
+      <a class="boton" href="hevelyn_laurean.vcf" download>Guardar contacto</a>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Psic. César Quintero</h2>
+      <div class="puesto">Psicólogo · Bienestar Estudiantil</div>
+      <div class="dato"><span class="icono">✉️</span> cesar.quintero@tec.mx</div>
+      <a class="boton" href="cesar_quintero.vcf" download>Guardar contacto</a>
+    </div>
+
+    <footer>Esta página se puede actualizar sin cambiar el código QR.</footer>
+  </div>
+</body>
+</html>
