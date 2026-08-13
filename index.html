@@ -90,9 +90,73 @@
     font-size:0.75rem;
     margin-top:30px;
   }
+
+  /* --- Fondo animado tipo cintillo (45°) --- */
+  .fondo-animado{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+    opacity:0.5;
+    background:#faf9f7;
+  }
+  .rotado{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:160vmax;
+    height:160vmax;
+    transform:translate(-50%,-50%) rotate(45deg);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+  }
+  .fila{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    will-change:transform;
+  }
+  .fila img{
+    height:44px;
+    width:auto;
+    margin:0 26px;
+    flex-shrink:0;
+  }
+  @keyframes cintillo-izq{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @keyframes cintillo-der{
+    from{ transform:translateX(-50%); }
+    to{ transform:translateX(0); }
+  }
+  .fila.izq{ animation:cintillo-izq 26s linear infinite; }
+  .fila.der{ animation:cintillo-der 26s linear infinite; }
 </style>
 </head>
 <body>
+  <div class="fondo-animado" aria-hidden="true"><div class="rotado"></div></div>
+  <script>
+    // Genera las filas del fondo animado sin tener que repetir el <img> a mano
+    const fondo = document.querySelector('.rotado');
+    const FILAS = 14;
+    const LOGOS_POR_SET = 14;
+    for (let i = 0; i < FILAS; i++) {
+      const fila = document.createElement('div');
+      fila.className = 'fila ' + (i % 2 === 0 ? 'izq' : 'der');
+      // Dos sets idénticos seguidos para que el translateX(-50%) haga el loop perfecto
+      for (let set = 0; set < 2; set++) {
+        for (let j = 0; j < LOGOS_POR_SET; j++) {
+          const img = document.createElement('img');
+          img.src = 'logo_life.png';
+          img.alt = '';
+          fila.appendChild(img);
+        }
+      }
+      fondo.appendChild(fila);
+    }
+  </script>
   <div class="contenedor">
     <header>
       <img src="logo.png" alt="Logo Bienestar Estudiantil">
@@ -123,6 +187,7 @@
       <a class="boton" href="cesar_quintero.vcf" download>Guardar contacto</a>
     </div>
 
+    <footer>Esta página se puede actualizar sin cambiar el código QR.</footer>
   </div>
 </body>
 </html>
